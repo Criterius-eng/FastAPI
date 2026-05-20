@@ -27,9 +27,9 @@ def mandani(valueSoilMoisture, valueTemperature, valueLight, valueHumidity):
     humidity['optimo'] = fuzz.trimf(humidity.universe, [45, 65, 85])
     humidity['alta'] = fuzz.trapmf(humidity.universe, [70, 80, 100, 100])
 
-    irrigation['bajo'] = fuzz.trapmf(irrigation.universe, [0, 0, 15, 30])
-    irrigation['medio'] = fuzz.trimf(irrigation.universe, [20, 40, 60])
-    irrigation['alto'] = fuzz.trapmf(irrigation.universe, [50, 85, 120, 120])
+    irrigation['bajo'] = fuzz.trapmf(irrigation.universe, [0, 0, 10, 20])
+    irrigation['medio'] = fuzz.trimf(irrigation.universe, [15, 30, 40])
+    irrigation['alto'] = fuzz.trapmf(irrigation.universe, [35, 50, 60, 60])
 
     rule1 = ctrl.Rule(soilMoisture['baja'] & temperature['alta'] & light['alta'] & humidity['baja'], irrigation['alto'])
     rule2 = ctrl.Rule(soilMoisture['baja'] & temperature['optimo'] & light['optimo'], irrigation['medio'])
